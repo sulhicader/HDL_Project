@@ -2,28 +2,24 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Tue Jul 28 19:16:39 2020
-# Process ID: 17316
+# Start of session at: Tue Jul 28 21:30:38 2020
+# Process ID: 8748
 # Current directory: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18136 C:\Users\M.F.M.MUAZ\Desktop\HDL\project\New folder\HDL_Project\HDL_Project\HDL_Project.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19196 C:\Users\M.F.M.MUAZ\Desktop\HDL\project\New folder\HDL_Project\HDL_Project\HDL_Project.xpr
 # Log file: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/vivado.log
 # Journal file: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.xprupupdate_compile_order -fileset sources_close [ open {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new/memory_handler.vhd} w ]
-add_files {{C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new/memory_handler.vhd}}
+open_project {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.xpr}
 update_compile_order -fileset sources_1
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new
-file mkdir {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new}
-close [ open {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new/tb_in_memory_unit.vhd} w ]
-add_files -fileset sim_1 {{C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new/tb_in_memory_unit.vhd}}
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
 launch_simulation
+open_wave_config {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/cfg_tb_in_memory_unit_behav.wcfg}
 source cfg_tb_in_memory_unit.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top cfg_tb_out_memory_unit [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+close_sim

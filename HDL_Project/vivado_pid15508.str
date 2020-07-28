@@ -5601,3 +5601,25 @@ dismissDialog("Close Project"); // bB (cr)
 // WARNING: HEventQueue.dispatchEvent() is taking  14569 ms.
 // HMemoryUtils.trashcanNow. Engine heap size: 919 MB. GUI used memory: 131 MB. Current time: 7/28/20, 7:40:32 PM IST
 // WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 202 ms. Decreasing delay to 2202 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1959 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 919 MB. GUI used memory: 132 MB. Current time: 7/28/20, 8:10:19 PM IST
+// WARNING: HEventQueue.dispatchEvent() is taking  1713 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 919 MB. GUI used memory: 131 MB. Current time: 7/28/20, 8:40:19 PM IST
+// Elapsed time: 18136 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+// WARNING: HEventQueue.dispatchEvent() is taking  1110 ms.
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // aa (q, cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // aa (q, cr)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // af (cr)
+selectMenuItem(PAResourceCommand.PACommandNames_OPEN_PROJECT, "Open..."); // ai (cr)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // aa (q, cr)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// WARNING: HEventQueue.dispatchEvent() is taking  2500 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2029 ms.
+// Elapsed time: 18 seconds
+dismissFileChooser();
+// 'i' command handler elapsed time: 17 seconds
+// WARNING: HEventQueue.dispatchEvent() is taking  3558 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 919 MB. GUI used memory: 135 MB. Current time: 7/28/20, 9:10:21 PM IST
