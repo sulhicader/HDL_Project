@@ -887,3 +887,26 @@ selectCodeEditor("in_memory_unit.vhd", 104, 299); // ch (w, cr)
 typeControlKey((HResource) null, "in_memory_unit.vhd", 'v'); // ch (w, cr)
 selectCodeEditor("in_memory_unit.vhd", 385, 291); // ch (w, cr)
 // TclEventType: FILE_SET_CHANGE
+// Elapsed time: 48 seconds
+selectCodeEditor("read_ram.vhd", 2, 25); // ch (w, cr)
+typeControlKey((HResource) null, "read_ram.vhd", 'c'); // ch (w, cr)
+selectCodeEditor("in_memory_unit.vhd", 37, 275); // ch (w, cr)
+selectCodeEditor("in_memory_unit.vhd", 18, 260); // ch (w, cr)
+typeControlKey((HResource) null, "in_memory_unit.vhd", 'v'); // ch (w, cr)
+selectCodeEditor("in_memory_unit.vhd", 47, 159); // ch (w, cr)
+// Elapsed time: 10 seconds
+selectCodeEditor("in_memory_unit.vhd", 28, 201); // ch (w, cr)
+// Elapsed time: 72 seconds
+selectCodeEditor("in_memory_unit.vhd", 201, 250); // ch (w, cr)
+selectCodeEditor("in_memory_unit.vhd", 75, 166); // ch (w, cr)
+// Elapsed time: 27 seconds
+selectCodeEditor("in_memory_unit.vhd", 204, 190); // ch (w, cr)
+selectCodeEditor("in_memory_unit.vhd", 39, 127); // ch (w, cr)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 91 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, in_memory_unit(Behavioral) (in_memory_unit.vhd)]", 1); // B (F, cr)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, in_memory_unit(Behavioral) (in_memory_unit.vhd), in_ram : blk_mem_gen_0 (blk_mem_gen_0.xci)]", 2); // B (F, cr)
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, in_memory_unit(Behavioral) (in_memory_unit.vhd)]", 1); // B (F, cr)

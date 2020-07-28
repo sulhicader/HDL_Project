@@ -1033,3 +1033,11 @@ wait_on_run: Time (s): cpu = 00:00:09 ; elapsed = 00:02:16 . Memory (MB): peak =
 export_simulation -of_objects [get_files {{c:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci}}] -directory {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.ip_user_files/sim_scripts} -ip_user_files_dir {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.ip_user_files} -ipstatic_source_dir {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.ip_user_files/ipstatic} -lib_map_path [list {modelsim=C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.cache/compile_simlib/modelsim} {questa=C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.cache/compile_simlib/questa} {riviera=C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.cache/compile_simlib/riviera} {activehdl=C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
 file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
 file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
+file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
+file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
+file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
+file mkdir C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new
+file mkdir {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new}
+close [ open {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new/in_memory_unit.vhd} w ]
+add_files {{C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new/in_memory_unit.vhd}}
+update_compile_order -fileset sources_1
