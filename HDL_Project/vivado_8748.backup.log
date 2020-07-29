@@ -1,0 +1,106 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Tue Jul 28 21:30:38 2020
+# Process ID: 8748
+# Current directory: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19196 C:\Users\M.F.M.MUAZ\Desktop\HDL\project\New folder\HDL_Project\HDL_Project\HDL_Project.xpr
+# Log file: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/vivado.log
+# Journal file: C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 782.082 ; gain = 137.672
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2019.2/data/xsim/xsim.ini' copied to run dir:'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'cfg_tb_in_memory_unit' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim/hex_image.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj cfg_tb_in_memory_unit_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new/tb_in_memory_unit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_in_memory_unit'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim'
+"xelab -wto bb764b6ecc894adc88b1d8e502473361 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot cfg_tb_in_memory_unit_behav xil_defaultlib.cfg_tb_in_memory_unit -log elaborate.log"
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto bb764b6ecc894adc88b1d8e502473361 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot cfg_tb_in_memory_unit_behav xil_defaultlib.cfg_tb_in_memory_unit -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,init_00="000...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_wrapper_init [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_width [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_generic_cstr [blk_mem_gen_0_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_top [blk_mem_gen_0_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_4_synth [blk_mem_gen_0_blk_mem_gen_v8_4_4...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_4 [blk_mem_gen_0_blk_mem_gen_v8_4_4...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0 [blk_mem_gen_0_default]
+Compiling architecture behavioral of entity xil_defaultlib.in_memory_unit [in_memory_unit_default]
+Compiling architecture tb of entity xil_defaultlib.tb_in_memory_unit [tb_in_memory_unit]
+Built simulation snapshot cfg_tb_in_memory_unit_behav
+run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 806.133 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "cfg_tb_in_memory_unit_behav -key {Behavioral:sim_1:Functional:cfg_tb_in_memory_unit} -tclbatch {cfg_tb_in_memory_unit.tcl} -view {{C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/cfg_tb_in_memory_unit_behav.wcfg}} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+open_wave_config {C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/cfg_tb_in_memory_unit_behav.wcfg}
+source cfg_tb_in_memory_unit.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'cfg_tb_in_memory_unit_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 833.438 ; gain = 27.305
+set_property top cfg_tb_out_memory_unit [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+update_compile_order -fileset sim_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jul 28 21:34:02 2020...
