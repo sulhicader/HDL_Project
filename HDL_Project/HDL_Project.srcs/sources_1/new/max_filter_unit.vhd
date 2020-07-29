@@ -86,6 +86,9 @@ begin
         if (reset = '0') then
             row_op := 0;
             column_op := 0;
+            kernal_count := 0;
+            sub_row := 0;
+            sub_column := 0;
             current_pixel_count :=  0;
             max_pixel_value :=  "00000000";
             finished_filter_out <= '0';
@@ -116,10 +119,10 @@ begin
                         
                         
                     else
-                        ram_filtered_write_enable_out <= '1';
-                        ram_filtered_enable_out <= '1';
                         ram_filtered_address_out <= std_logic_vector(to_unsigned(current_pixel_count, ram_address_length_g));
-                        ram_filtered_data_out <= std_logic_vector(max_pixel_value);  
+                        ram_filtered_data_out <= std_logic_vector(max_pixel_value); 
+                        ram_filtered_write_enable_out <= '1';
+                        ram_filtered_enable_out <= '1'; 
                         kernal_count := 0;
                         current_pixel_count := current_pixel_count+1;
                         sub_row := 0;
