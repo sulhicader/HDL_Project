@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity padding is generic (
+entity padding_unit is generic (
      input_address_size_g : integer := 10;          --width/height of input image 
      pixel_size_g: integer := 8;                    --number of bits in a pixel
      input_image_size_g : integer := 25);                                                         
@@ -51,9 +51,9 @@ entity padding is generic (
            output_ram_address_out : out STD_LOGIC_VECTOR (input_address_size_g-1 downto 0));     --address for writing values to output ram
            
            
-end padding;
+end padding_unit;
 
-architecture Behavioral of padding is
+architecture Behavioral of padding_unit is
 
 begin
 
@@ -116,7 +116,9 @@ padding_process : process (clk, reset, start_padding_in)
                  
                  else
                      if (write_delay = 0) then 
-                         read_delay := 4;       
+                         read_delay := 4;
+                         input_ram_enable_out <= '0';
+                         input_ram_write_enable_out <= "0";         
                          input_ram_address_out <= std_logic_vector(to_unsigned((input_image_size_g*padded_row) + padded_column, input_address_size_g));
                          input_ram_enable_out <= '1';
                          input_ram_write_enable_out <= "0";
@@ -124,7 +126,9 @@ padding_process : process (clk, reset, start_padding_in)
                      end if;
 
                      if (read_delay = 0) then
-                         write_delay := 4;   
+                         write_delay := 4;
+                         output_ram_enable_out <= '0';
+                         output_ram_write_enable_out <= "0";   
                          output_ram_address_out <= std_logic_vector(to_unsigned(current_pixel_count, input_address_size_g));               
                          output_ram_out <= input_ram_in;
                          output_ram_enable_out <= '1';
