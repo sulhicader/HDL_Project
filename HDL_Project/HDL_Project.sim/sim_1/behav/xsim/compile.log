@@ -1,2 +1,4 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Dell/Desktop/HDLLL/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new/tb_main_program.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_main_program'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Dell/Desktop/HDLLL/HDL_Project/HDL_Project/HDL_Project.srcs/sources_1/new/padding_unit_with_two_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'padding_unit_with_two_memory'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Dell/Desktop/HDLLL/HDL_Project/HDL_Project/HDL_Project.srcs/sim_1/new/tb_padding_unit_with_two_memory.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_padding_unit_with_two_memory'

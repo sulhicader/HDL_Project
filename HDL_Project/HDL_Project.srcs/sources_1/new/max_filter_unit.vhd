@@ -48,21 +48,21 @@ entity max_filter_unit is
         
         finished_filter_out : out STD_LOGIC := '0';
         
-        ram_write_enable_out : out  STD_LOGIC := '0';
+        ram_write_enable_out : out  STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";
         
         ram_enable_out : out  STD_LOGIC := '0';
         
-        ram_initial_address_out : out STD_LOGIC_VECTOR(ram_address_length_g-1 DOWNTO 0) := std_logic_vector(to_unsigned(0, ram_address_length_g));
+        ram_initial_address_out : out STD_LOGIC_VECTOR(ram_address_length_g-1 DOWNTO 0) := STD_LOGIC_VECTOR(to_unsigned(0, ram_address_length_g));
         
         ram_initial_data_in : in STD_LOGIC_VECTOR(pixel_size_g -1 DOWNTO 0);
         
-        ram_filtered_write_enable_out : out  STD_LOGIC := '0';
+        ram_filtered_write_enable_out : out  STD_LOGIC_VECTOR(0 DOWNTO 0) := "0";
         
         ram_filtered_enable_out : out  STD_LOGIC := '0';
         
-        ram_filtered_address_out : out STD_LOGIC_VECTOR(ram_address_length_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(0, ram_address_length_g));
+        ram_filtered_address_out : out STD_LOGIC_VECTOR(ram_address_length_g -1 DOWNTO 0) := STD_LOGIC_VECTOR(to_unsigned(0, ram_address_length_g));
         
-        ram_filtered_data_out : out STD_LOGIC_VECTOR(pixel_size_g -1 DOWNTO 0) := std_logic_vector(to_unsigned(0, pixel_size_g))
+        ram_filtered_data_out : out STD_LOGIC_VECTOR(pixel_size_g -1 DOWNTO 0) := STD_LOGIC_VECTOR(to_unsigned(0, pixel_size_g))
   );
 end max_filter_unit;
 
@@ -79,8 +79,8 @@ begin
         variable sub_column : INTEGER := 0;
         variable current_pixel_reading : INTEGER := 0;
         variable current_pixel_count : INTEGER := 0;
-        variable max_pixel_value :  STD_LOGIC_VECTOR( pixel_size_g-1 to 0 ) := "00000000";
-        variable current_pixel_value : STD_LOGIC_VECTOR(pixel_size_g -1 DOWNTO 0) := "00000000";
+        variable max_pixel_value :  STD_LOGIC_VECTOR( 7 DOWNTO 0 ) := "00000000";
+        variable current_pixel_value : STD_LOGIC_VECTOR(7 DOWNTO 0) := "00000000";
         
     begin
         if (reset = '0') then
@@ -92,7 +92,7 @@ begin
             current_pixel_count :=  0;
             max_pixel_value :=  "00000000";
             finished_filter_out <= '0';
-            ram_filtered_write_enable_out <= '0';
+            ram_filtered_write_enable_out <= "0";
         elsif ( clk 'event and clk = '1' ) then
             if start_filter_in = '1' then
                 if (current_pixel_count = image_size) then
@@ -102,7 +102,7 @@ begin
                     if (kernal_count < 8 ) then
                         current_pixel_reading := (row_op+sub_row)*padded_image_width_g + column_op + sub_column;
                         ram_initial_address_out <= std_logic_vector(to_unsigned(current_pixel_reading, ram_address_length_g));
-                        ram_write_enable_out <= '0';
+                        ram_write_enable_out <= "0";
                         ram_enable_out <= '1';
                         current_pixel_value := ram_initial_data_in ;
                         if (current_pixel_value > max_pixel_value) then
@@ -121,7 +121,7 @@ begin
                     else
                         ram_filtered_address_out <= std_logic_vector(to_unsigned(current_pixel_count, ram_address_length_g));
                         ram_filtered_data_out <= std_logic_vector(max_pixel_value); 
-                        ram_filtered_write_enable_out <= '1';
+                        ram_filtered_write_enable_out <= "0";
                         ram_filtered_enable_out <= '1'; 
                         kernal_count := 0;
                         current_pixel_count := current_pixel_count+1;
