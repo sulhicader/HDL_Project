@@ -102,7 +102,6 @@ begin
                     if (kernal_count < 8 ) then
                         current_pixel_reading := (row_op+sub_row)*padded_image_width_g + column_op + sub_column;
                         ram_initial_address_out <= std_logic_vector(to_unsigned(current_pixel_reading, ram_address_length_g));
-                        ram_write_enable_out <= "0";
                         ram_enable_out <= '1';
                         current_pixel_value := ram_initial_data_in ;
                         if (current_pixel_value > max_pixel_value) then

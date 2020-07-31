@@ -1,0 +1,15 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../HDL_Project.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_sim_netlist.vhdl" \
+"../../../../HDL_Project.srcs/sources_1/ip/blk_mem_gen_3/blk_mem_gen_3_sim_netlist.vhdl" \
+"../../../../HDL_Project.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_sim_netlist.vhdl" \
+"../../../../HDL_Project.srcs/sources_1/new/in_memory_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/main_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/max_filter_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/out_memory_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/padding_dual_memory_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/padding_unit.vhd" \
+"../../../../HDL_Project.srcs/sources_1/new/max_filter_system.vhd" \
+
+# Do not sort compile order
+nosort

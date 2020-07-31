@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New folder/HDL_Project/HDL_Project/HDL_Project.runs/blk_mem_gen_0_synth_1'
+HD_PWD='C:/Users/Dell/Desktop/HDLLL/HDL_Project/HDL_Project/HDL_Project.runs/blk_mem_gen_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

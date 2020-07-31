@@ -2,3 +2,6 @@ Running: xsim.dir/tb_padding_unit_with_two_memory_behav/xsimk.exe -simmode gui -
 Design successfully loaded
 Design Loading Memory Usage: 6104 KB (Peak: 6104 KB)
 Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 6768 KB (Peak: 6768 KB)
+Simulation CPU Usage: 31 ms

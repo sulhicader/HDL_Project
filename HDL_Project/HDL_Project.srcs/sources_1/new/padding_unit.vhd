@@ -87,8 +87,6 @@ padding_process : process (clk, reset, start_padding_in)
                     
         elsif rising_edge(clk) then
             if start_padding_in = '1' then
-            
-                 
                  if (current_pixel_count = padded_image_size) then
                     finished_padding_out <= '1';
                  end if; 
