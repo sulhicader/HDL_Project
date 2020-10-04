@@ -32,20 +32,20 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity max_filter_unit is generic (
-     pixel_depth_g: integer := 8;                                                         
-     input_width_g : integer := 27;                                         
-     address_width_g : integer := 10);                                                    
+     pixel_depth_g: integer := 8;               -- size of an image pixel                                                
+     input_width_g : integer := 27;             -- width of the input image for the max_filter_unit                                  
+     address_width_g : integer := 10);          -- width of the address of memory unit                                                
 
-    Port ( input_img_in : in STD_LOGIC_VECTOR (pixel_depth_g-1 downto 0);                 
-           output_img_out : out STD_LOGIC_VECTOR (pixel_depth_g-1 downto 0);             
-           clk : in STD_LOGIC;
-           rst_n : in STD_LOGIC;
-           start_op_in : in STD_LOGIC;                                                
-           done_op_out : out STD_LOGIC;                                              
-           input_img_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                 
-           output_img_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                 
-           input_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);    
-           output_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0));  
+    Port ( input_img_in : in STD_LOGIC_VECTOR (pixel_depth_g-1 downto 0);                                   -- holds input image pixel        
+           output_img_out : out STD_LOGIC_VECTOR (pixel_depth_g-1 downto 0);                                -- holds output image pixel
+           clk : in STD_LOGIC;                                                                              -- clk to drive max filter unit     
+           rst_n : in STD_LOGIC;                                                                            -- signal to reset max filter unit
+           start_op_in : in STD_LOGIC;                                                                      -- signal to start the filtering operation
+           done_op_out : out STD_LOGIC;                                                                     -- goes high when filtering operation is done
+           input_img_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                                         -- enable pin to enable input image memory
+           output_img_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                                        -- enable pin to enable output image memory
+           input_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);                       -- addres of input image pixel
+           output_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0));                     -- addres to write output image pixel
            
 end max_filter_unit;
 
@@ -55,19 +55,19 @@ begin
 
 convolve_image : process (clk, input_img_in, rst_n, start_op_in)
                  
-    constant output_width : integer := input_width_g -2;                           
-    constant output_img_size : integer := output_width * output_width;             
-    constant kernel_width : integer := 3;                                          
-    constant kernel_size : integer := kernel_width * kernel_width; 
+    constant output_width : integer := input_width_g -2;                            -- width of output image from the filter unit                 
+    constant output_img_size : integer := output_width * output_width;              -- size of the output image
+    constant kernel_width : integer := 3;                                           -- width of the kernel
+    constant kernel_size : integer := kernel_width * kernel_width;                  -- size of the kernel
            
-    variable output_pixel_counter : integer := 0;                                  
-    variable kernel_pixel_counter : integer := 0;                                                 
-    variable kernel_x_index : integer := 0;                                        
-    variable kernel_y_index : integer := 0;                                        
-    variable img_x_index : integer := 0;                                            
-    variable img_y_index : integer := 0;                                   
-    variable img_pixel : integer := 0;     
-    variable max_pixel_val : integer := 0;
+    variable output_pixel_counter : integer := 0;                                   -- counter to count output image pixels
+    variable kernel_pixel_counter : integer := 0;                                   -- counter to count kernel pixels to iterate within the kernel
+    variable kernel_x_index : integer := 0;                                         -- horizontal position in kernel
+    variable kernel_y_index : integer := 0;                                         -- vertical position in kernel
+    variable img_x_index : integer := 0;                                            -- horizontal position in image
+    variable img_y_index : integer := 0;                                            -- vertical position in image
+    variable img_pixel : integer := 0;                                              -- holds processing pixel value            
+    variable max_pixel_val : integer := 0;                                          -- holds larger pixel value within a kernel
 
     begin
 

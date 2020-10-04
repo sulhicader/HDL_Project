@@ -32,12 +32,12 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity main is
-    Port ( clk : in STD_LOGIC;
-         rst_n : in STD_LOGIC;
-         enable_max_filter_in : in STD_LOGIC;                                   
-         max_filter_done_out : out STD_LOGIC := '0';                            
-         rx_in : in STD_LOGIC;                                                      
-         tx_out : out STD_LOGIC );
+    Port ( clk : in STD_LOGIC;                            -- clock to drive entire system
+         rst_n : in STD_LOGIC;                            -- reset signal for the entire system
+         enable_max_filter_in : in STD_LOGIC;             -- enable signal for the system
+         max_filter_done_out : out STD_LOGIC := '0';      -- goes high when the system finishes the filtering operation
+         rx_in : in STD_LOGIC;                            -- rx pin of uart communication module
+         tx_out : out STD_LOGIC );                        -- tx pin of uart communication module
 end main;
 
 architecture Behavioral of main is
@@ -74,9 +74,9 @@ end component;
 
 component padding_unit is 
     generic (
-        pixel_size_g: integer := 8;                                                        
-        input_width_g : integer := 25;                                                     
-        address_width_g : integer := 10);                                                  
+        pixel_size_g: integer := 8;           -- size of an image pixel                                                             
+        input_width_g : integer := 25;        -- width of the input image for the component                     
+        address_width_g : integer := 10);     -- width of the address of memory unit       
       
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;
@@ -91,9 +91,9 @@ end component;
 
 component max_filter_unit is 
     generic (
-        pixel_size_g: integer := 8;                                                        
-        input_width_g : integer := 27;                                                     
-        address_width_g : integer := 10);                                                  
+        pixel_size_g: integer := 8;           -- size of an image pixel                                                     
+        input_width_g : integer := 27;        -- width of the input image for the component                                             
+        address_width_g : integer := 10);     -- width of the address of memory unit                                             
                                         
     Port ( clk : in STD_LOGIC;
            rst_n : in STD_LOGIC;                 
@@ -108,9 +108,9 @@ component max_filter_unit is
 end component;
 
 component uart_com_unit is generic (
-     pixel_size_g: integer := 8;                                                     
-     input_width_g : integer := 25;                                                  
-     address_width_g : integer := 10);                                               
+     pixel_size_g: integer := 8;              -- size of an image pixel                                       
+     input_width_g : integer := 25;           -- width of the input image for the component                                        
+     address_width_g : integer := 10);        -- width of the address of memory unit                                       
 
     Port (  clk : in std_logic;
             rst_n : in std_logic;
@@ -142,6 +142,8 @@ component controler_unit is
            done_transmiter_in : in STD_LOGIC );                                                   
 end component;
 
+-- signals to hold the intermediate values 
+
 signal input_img_padding : STD_LOGIC_VECTOR (7 downto 0);                    
 signal output_img_padding : STD_LOGIC_VECTOR (7 downto 0);                  
 signal enable_padding : STD_LOGIC;                                      
@@ -172,6 +174,8 @@ signal input_img_address_uart : STD_LOGIC_VECTOR (9 downto 0);
 signal output_img_address_uart : STD_LOGIC_VECTOR (9 downto 0);
 
 begin
+
+-- Port mapping of all the components
 input_ram : blk_mem_gen_0
         port map ( clka => clk,                                    
                    clkb => clk,                     

@@ -32,19 +32,19 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity padding_unit is generic (
-     pixel_size_g: integer := 8;                                                            
-     image_width_g : integer := 25;                                                          
-     address_width_g : integer := 10);  
+     pixel_size_g: integer := 8;                -- size of an image pixel                                                        
+     image_width_g : integer := 25;             -- width of the input image for the padding unit                   
+     address_width_g : integer := 10);          -- width of the address of memory unit
  
-  Port (   clk : in STD_LOGIC;
-           rst_n : in STD_LOGIC;
-           input_img_pixel_in : in STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                   
-           output_img_pixel_out : out STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                
-           start_op_in : in STD_LOGIC;                                                         
-           done_op_out : out STD_LOGIC;                                                       
-           input_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);        
-           output_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);                        
-           output_img_write_en_out : out STD_LOGIC_VECTOR(0 DOWNTO 0));                        
+  Port (   clk : in STD_LOGIC;                                                                          -- clock signal to drive the padding unit
+           rst_n : in STD_LOGIC;                                                                        -- signal to reset the padding unit
+           input_img_pixel_in : in STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                          -- holds input image pixel
+           output_img_pixel_out : out STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                       -- holds output image pixel
+           start_op_in : in STD_LOGIC;                                                                  -- signal tostart the padding process
+           done_op_out : out STD_LOGIC;                                                                 -- goes high when the padding process is done
+           input_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);                   -- address of the input image pixel
+           output_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);                  -- address to write output image pixel
+           output_img_write_en_out : out STD_LOGIC_VECTOR(0 DOWNTO 0));                                 -- signal to enable output ram
            
 end padding_unit;
 
@@ -54,15 +54,15 @@ begin
 
 pad_image : process (clk, input_img_pixel_in, rst_n, start_op_in)
 
-    constant padded_img_width : integer := image_width_g +2;                                
-    constant padded_img_size : integer := padded_img_width * padded_img_width;                  
-    variable output_pixel_counter : integer := 0;                                       
-    variable pad_img_col : integer := 0;                                                
-    variable pad_img_row : integer := 0;                                                
-    variable org_img_col : integer := 0;                                                
-    variable org_img_row : integer := 0;                                                
-    variable read_delay : integer := 3;                                                 
-    variable write_delay : integer := 3;                                                
+    constant padded_img_width : integer := image_width_g +2;                                            -- width of the padded image                       
+    constant padded_img_size : integer := padded_img_width * padded_img_width;                          -- size of the padded image
+    variable output_pixel_counter : integer := 0;                                                       -- counter to count output image pixels
+    variable pad_img_col : integer := 0;                                                                -- vertical position in padded image
+    variable pad_img_row : integer := 0;                                                                -- horizontal position in padded image
+    variable org_img_col : integer := 0;                                                                -- vertical position in input image
+    variable org_img_row : integer := 0;                                                                -- horizontal position in input image
+    variable read_delay : integer := 3;                                                                 -- holds timer to read delay
+    variable write_delay : integer := 3;                                                                -- holds timer to write delay
     
     begin
 
