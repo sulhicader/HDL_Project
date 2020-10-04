@@ -385,3 +385,8 @@ dismissDialog("Open Project"); // bB (cr)
 // Elapsed time: 50262 seconds
 expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, main(Behavioral) (main.vhd)]", 1); // B (F, cr)
 // WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 1959 ms. Increasing delay to 5877 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 4898 ms. Increasing delay to 14694 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 381 ms. Decreasing delay to 2381 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 3486 ms. Increasing delay to 10458 ms.
+// WARNING: HSwingWorker (Refresh Filesets Swing Worker) is taking 102 ms. Decreasing delay to 2102 ms.
+// WARNING: HSwingWorker (Update Runs Swing Worker) is taking 6295 ms. Increasing delay to 10000 ms.
