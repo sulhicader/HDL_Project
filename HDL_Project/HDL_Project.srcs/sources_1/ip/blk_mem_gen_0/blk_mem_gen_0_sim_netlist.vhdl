@@ -1,10 +1,10 @@
 -- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
--- Date        : Tue Jul 28 08:25:35 2020
+-- Date        : Tue Sep 22 11:01:25 2020
 -- Host        : DELL-MU123AZ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top blk_mem_gen_0 -prefix
---               blk_mem_gen_0_ blk_mem_gen_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               C:/Users/M.F.M.MUAZ/Desktop/HDL/project/New_folder/HDL_Project/HDL_final_project_latest/HDL_final_project_latest.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_sim_netlist.vhdl
 -- Design      : blk_mem_gen_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,35 +16,37 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0_blk_mem_gen_prim_wrapper_init is
   port (
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end blk_mem_gen_0_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_prim_wrapper_init is
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_0\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_1\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_10\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_11\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_2\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_3\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_32\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_33\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_8\ : STD_LOGIC;
-  signal \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_9\ : STD_LOGIC;
-  signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOBDO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_16\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_17\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_18\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_19\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_24\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_25\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_26\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_27\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_34\ : STD_LOGIC;
+  signal \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_35\ : STD_LOGIC;
+  signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_DOADO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_DOPADOP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute box_type : string;
-  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram\ : label is "PRIMITIVE";
+  attribute box_type of \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram\ : label is "PRIMITIVE";
 begin
-\DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram\: unisim.vcomponents.RAMB18E1
+\DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram\: unisim.vcomponents.RAMB18E1
     generic map(
       DOA_REG => 1,
-      DOB_REG => 0,
+      DOB_REG => 1,
       INITP_00 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_01 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_02 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -53,45 +55,45 @@ begin
       INITP_05 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_06 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INITP_07 => X"0000000000000000000000000000000000000000000000000000000000000000",
-      INIT_00 => X"080F080B0B06090D0E030D070D0A0B060A0909050A0B0A030B04090E080A0805",
-      INIT_01 => X"0A090C010B050C0D0C0F090408060A030C00080C0A0809060A0B0A06090D0D0B",
-      INIT_02 => X"0C010A05080B0B0409030C0A08010D070A030C000E070A040A020702070F0903",
-      INIT_03 => X"0E0C0B0109030F030E020D040B0F0B080C020C010A0409060C080B0B070C0907",
-      INIT_04 => X"0805090D0A040C020B090B00090D08070A04090C0C0C08070B0C0C000B0D0C0D",
-      INIT_05 => X"060E080B0A0D0A0F090E0A060B060F000A050C050C030C050B080A070A0B0B08",
-      INIT_06 => X"000401070B0B0B0A0E0109080B0E0A060A0A0C0F090609040700080808090D03",
-      INIT_07 => X"090407090900070B0B09090E0A000A0F0B0C0A0A0B00090F0B040C070D030104",
-      INIT_08 => X"090F0B03090E0C0F0D07040305050301000E0000080E0A000C090B030C04080A",
-      INIT_09 => X"000D030100000D0E0C060B030B000B030A030B080A09090A090507090A08090B",
-      INIT_0A => X"080E08000A010907090C0A0A08030A070A030A09070E030006060D0A070F000D",
-      INIT_0B => X"0905060E0602000C090F03020A0B010200000208000009010A0D080F0A070A05",
-      INIT_0C => X"000A010400000B0909060B070C0F0903070E0903080709000B0209090A0F0A05",
-      INIT_0D => X"080B06080B040A0D080A0B0D090B0A0A0A00010B06070D010000000003050100",
-      INIT_0E => X"020F0E090B0900070203030B01090101010D020601040A050C0509060906070E",
-      INIT_0F => X"0103020B00000B000C0C090508010906080B0B05060B0908090E0C00070C0607",
-      INIT_10 => X"0A0D0A0F09060A0E08060A020D06000D0007070D0203020D0108000602000002",
-      INIT_11 => X"000B010F0308000D050A0100010E000600060C040A0B080C0D0F080F0909050C",
-      INIT_12 => X"0B020B0005090B0B0906070709080A0F0B060B0C0A0E080B08030C04040A010A",
-      INIT_13 => X"0C01090D09070F06080102070000010F010D0102010F080D01080107010C0207",
-      INIT_14 => X"000C040001080000000E020D01070A020A020B070D08070C080E0D070B040A09",
-      INIT_15 => X"060908070A08070C0B080D070B0D09030A0208000A000C000A050B0308090B08",
-      INIT_16 => X"0D0B0B0B0102070F070F08090D070C0F0107020D0108020E0000000A0A0B0803",
-      INIT_17 => X"000A010B010A010D010901010B03070F050B070D0A0C080F070E0A090C050901",
-      INIT_18 => X"000C07000D060A060A04090309080604080E02050C020707090D01010B060204",
-      INIT_19 => X"0602070E070F020D010B0803020F02000101000302020306010308050508090E",
-      INIT_1A => X"050B000B0100000C060E06030708010E0402070704070001030F000004030304",
-      INIT_1B => X"060B0703050F0709070D08050108080506040907090008020A00020200000109",
-      INIT_1C => X"0A090809040C08090A0705020000010A0007010201000107070D09060A02060F",
-      INIT_1D => X"00080206070F0A0B07040A0B050505050601060A06050708090A090705000609",
-      INIT_1E => X"08000806070F000C0105080B0809080B0706090903030909000701000104020A",
-      INIT_1F => X"090000020B0700000205010B0000010203000C020702070307060B0907030908",
-      INIT_20 => X"0A00080A0807070D0706070A090A080507030604080807070A0E06080906070F",
-      INIT_21 => X"03070801060F0A070906040F060A090103050407090B01050205010202010103",
-      INIT_22 => X"0606070F03070000020B0207010B05020704060B090B060B08040707050F060C",
-      INIT_23 => X"060D030D07020401070B020E0500050B0407070D050E080A0207050F09090D0D",
-      INIT_24 => X"060C0502070C070B0704070B070F0901090E0101030B0800010E010F080F0801",
-      INIT_25 => X"0209020A080E010F030B050C060C0805060A050A040E0709060F0603070B0B0C",
-      INIT_26 => X"080F0600090F080F0400070A060E0A0C0607090806040600040B0A0000030608",
+      INIT_00 => X"080709060B0A0A030E020D040D0E0A0E0A0E09030A080A010B04090809020805",
+      INIT_01 => X"0A080C070B0D0C050D07080408060A010B0F08010A060A040A0E090E0A050D04",
+      INIT_02 => X"0C00090A08090A05090B0C0F08030E0309010B090D06090F0A07060B080E080D",
+      INIT_03 => X"0E020C000A030E020E000C0F0C080B010C0A0B050A0E090B0C020C02070E0A05",
+      INIT_04 => X"080909060A0C0B050B020A0C0901080A0B050A050C0209080A0F0B0D0B0F0D07",
+      INIT_05 => X"050D090B090A0B080A06090B0B080E0B0A010C020C050C0F0B060A0D09080B05",
+      INIT_06 => X"000F01050A0C0B0F0D050B010C0F0A010A080C020A0109090705080C09060C0E",
+      INIT_07 => X"080C0806080507080B030906090C0A050C000B0A0A0E09070C000C020D090109",
+      INIT_08 => X"0A080A010A0E0C0D0D0204040601010901030006080E0A080B080A040B0C0904",
+      INIT_09 => X"00070303000C0C070D090B0B0A080B05090B0B040A0A0A08080409010B020906",
+      INIT_0A => X"09070801090609080A03090B070D0A0B0B08090A08020308060D0B0F090B000A",
+      INIT_0B => X"090A060F050C000A0A0102060B0B000A000001090102080E0A05080E0A0B0A04",
+      INIT_0C => X"000A000F00070B0B080E0B050C0F0906070E0904080E08080B040A030A0E090B",
+      INIT_0D => X"080807070A0D0A0F080B0B050A070A060907020606050D030003000303050103",
+      INIT_0E => X"02080D070C020003010C0302020101020105020401040A080C060A030805070E",
+      INIT_0F => X"0107010A000E0A0E0B060A0F0801090208050B0C0702080A0A050B0308020709",
+      INIT_10 => X"0A040A040B0B0A0E0808090F0C0E0109000F0707020D03000102000A02060007",
+      INIT_11 => X"000C0105040100000601000E0105000E00070C070A0109080C0A080E0908060A",
+      INIT_12 => X"0A0B090F060B0C050907070B09060A080B090B04090A080D09020C02040A0103",
+      INIT_13 => X"0B0D090B0A080E030801020B0000010D010F010503020709000F010201090302",
+      INIT_14 => X"000604010201000C000F020B01010A010A060A0A0C0A070B09040D050C020B08",
+      INIT_15 => X"070108070A07070E0B010C0F0B01090A0A08070D0A0C0C0A09090A0F09040A0E",
+      INIT_16 => X"0D000B05000F0807070D080E0D070D0001090206000C0209000A0003090F090A",
+      INIT_17 => X"0103010E010C000F0102010F0A030802050E070E0A0D0900080D09090D020803",
+      INIT_18 => X"000C060A0D070A010A0B09030907060A090602050C020704090B01010C050101",
+      INIT_19 => X"050C08020809020B0105080B020A010F0005010C01080305000E070D050E0907",
+      INIT_1A => X"040801020107000F0702060B0709010F04050702040A00050302000F0405020B",
+      INIT_1B => X"0702060E0509070C0605080E0209080706040805080609010908020B0000010F",
+      INIT_1C => X"0B02080C040809040A0604070003000F01050104000F0102070C080E0A01060A",
+      INIT_1D => X"0007020309000A0507080A0D05030509050A0701060708030908070E040F060E",
+      INIT_1E => X"080B0803060F010D02020902070B08020709090B01090A070105000901090101",
+      INIT_1F => X"0A0700070A0D0001010E010E000A000A03000B040607070E07040B04070B0901",
+      INIT_20 => X"090E080E070F070E070E08060808080C0609060B070E060B0A060709080B0804",
+      INIT_21 => X"0408070D07040A0509020509060A0801020A0507090201040109000003000107",
+      INIT_22 => X"06090801030800090300010A0105050607070607090B06050809070C06010607",
+      INIT_23 => X"0701030C060B030E08050301040F0504040A070F060D060F030804090A040E05",
+      INIT_24 => X"0700040B0808070807090806070B08020A03000F030A07090209010F080A070E",
+      INIT_25 => X"020A020B080D0201030C050A060E0805060B050A0503070906090607070D0B02",
+      INIT_26 => X"0900050E0A03080E0401070707020A0B0607090906010604040A0A0100050607",
       INIT_27 => X"0000000000000000000000000000000000000000000000000000000000000700",
       INIT_28 => X"0000000000000000000000000000000000000000000000000000000000000000",
       INIT_29 => X"0000000000000000000000000000000000000000000000000000000000000000",
@@ -129,7 +131,7 @@ begin
       IS_RSTREGARSTREG_INVERTED => '0',
       IS_RSTREGB_INVERTED => '0',
       RAM_MODE => "TDP",
-      RDADDR_COLLISION_HWCONFIG => "PERFORMANCE",
+      RDADDR_COLLISION_HWCONFIG => "DELAYED_WRITE",
       READ_WIDTH_A => 18,
       READ_WIDTH_B => 18,
       RSTREG_PRIORITY_A => "REGCE",
@@ -138,15 +140,16 @@ begin
       SIM_DEVICE => "7SERIES",
       SRVAL_A => X"00000",
       SRVAL_B => X"00000",
-      WRITE_MODE_A => "WRITE_FIRST",
-      WRITE_MODE_B => "WRITE_FIRST",
+      WRITE_MODE_A => "NO_CHANGE",
+      WRITE_MODE_B => "NO_CHANGE",
       WRITE_WIDTH_A => 18,
       WRITE_WIDTH_B => 18
     )
         port map (
       ADDRARDADDR(13 downto 4) => addra(9 downto 0),
       ADDRARDADDR(3 downto 0) => B"0000",
-      ADDRBWRADDR(13 downto 0) => B"00000000000000",
+      ADDRBWRADDR(13 downto 4) => addrb(9 downto 0),
+      ADDRBWRADDR(3 downto 0) => B"0000",
       CLKARDCLK => clka,
       CLKBWRCLK => clka,
       DIADI(15 downto 12) => B"0000",
@@ -156,30 +159,29 @@ begin
       DIBDI(15 downto 0) => B"0000000000000000",
       DIPADIP(1 downto 0) => B"00",
       DIPBDIP(1 downto 0) => B"00",
-      DOADO(15) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_0\,
-      DOADO(14) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_1\,
-      DOADO(13) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_2\,
-      DOADO(12) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_3\,
-      DOADO(11 downto 8) => douta(7 downto 4),
-      DOADO(7) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_8\,
-      DOADO(6) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_9\,
-      DOADO(5) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_10\,
-      DOADO(4) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_11\,
-      DOADO(3 downto 0) => douta(3 downto 0),
-      DOBDO(15 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOBDO_UNCONNECTED\(15 downto 0),
-      DOPADOP(1) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_32\,
-      DOPADOP(0) => \DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_n_33\,
-      DOPBDOP(1 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED\(1 downto 0),
-      ENARDEN => ena,
-      ENBWREN => '0',
-      REGCEAREGCE => ena,
-      REGCEB => '0',
+      DOADO(15 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_DOADO_UNCONNECTED\(15 downto 0),
+      DOBDO(15) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_16\,
+      DOBDO(14) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_17\,
+      DOBDO(13) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_18\,
+      DOBDO(12) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_19\,
+      DOBDO(11 downto 8) => doutb(7 downto 4),
+      DOBDO(7) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_24\,
+      DOBDO(6) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_25\,
+      DOBDO(5) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_26\,
+      DOBDO(4) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_27\,
+      DOBDO(3 downto 0) => doutb(3 downto 0),
+      DOPADOP(1 downto 0) => \NLW_DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_DOPADOP_UNCONNECTED\(1 downto 0),
+      DOPBDOP(1) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_34\,
+      DOPBDOP(0) => \DEVICE_7SERIES.NO_BMM_INFO.SDP.SIMPLE_PRIM18.ram_n_35\,
+      ENARDEN => wea(0),
+      ENBWREN => '1',
+      REGCEAREGCE => '0',
+      REGCEB => '1',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
       RSTREGARSTREG => '0',
       RSTREGB => '0',
-      WEA(1) => wea(0),
-      WEA(0) => wea(0),
+      WEA(1 downto 0) => B"11",
       WEBWE(3 downto 0) => B"0000"
     );
 end STRUCTURE;
@@ -189,13 +191,15 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0_blk_mem_gen_prim_width is
   port (
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end blk_mem_gen_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_prim_width is
@@ -203,10 +207,10 @@ begin
 \prim_init.ram\: entity work.blk_mem_gen_0_blk_mem_gen_prim_wrapper_init
      port map (
       addra(9 downto 0) => addra(9 downto 0),
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
-      douta(7 downto 0) => douta(7 downto 0),
-      ena => ena,
+      doutb(7 downto 0) => doutb(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -216,13 +220,15 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0_blk_mem_gen_generic_cstr is
   port (
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end blk_mem_gen_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_generic_cstr is
@@ -230,10 +236,10 @@ begin
 \ramloop[0].ram.r\: entity work.blk_mem_gen_0_blk_mem_gen_prim_width
      port map (
       addra(9 downto 0) => addra(9 downto 0),
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
-      douta(7 downto 0) => douta(7 downto 0),
-      ena => ena,
+      doutb(7 downto 0) => doutb(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -243,13 +249,15 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0_blk_mem_gen_top is
   port (
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end blk_mem_gen_0_blk_mem_gen_top;
 
 architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_top is
@@ -257,10 +265,10 @@ begin
 \valid.cstr\: entity work.blk_mem_gen_0_blk_mem_gen_generic_cstr
      port map (
       addra(9 downto 0) => addra(9 downto 0),
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
-      douta(7 downto 0) => douta(7 downto 0),
-      ena => ena,
+      doutb(7 downto 0) => doutb(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -270,13 +278,15 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0_blk_mem_gen_v8_4_4_synth is
   port (
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
+    wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
-    dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    wea : in STD_LOGIC_VECTOR ( 0 to 0 )
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    dina : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_v8_4_4_synth : entity is "blk_mem_gen_v8_4_4_synth";
 end blk_mem_gen_0_blk_mem_gen_v8_4_4_synth;
 
 architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_v8_4_4_synth is
@@ -284,10 +294,10 @@ begin
 \gnbram.gnativebmg.native_blk_mem_gen\: entity work.blk_mem_gen_0_blk_mem_gen_top
      port map (
       addra(9 downto 0) => addra(9 downto 0),
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
-      douta(7 downto 0) => douta(7 downto 0),
-      ena => ena,
+      doutb(7 downto 0) => doutb(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -376,7 +386,7 @@ entity blk_mem_gen_0_blk_mem_gen_v8_4_4 is
   attribute C_BYTE_SIZE : integer;
   attribute C_BYTE_SIZE of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 9;
   attribute C_COMMON_CLK : integer;
-  attribute C_COMMON_CLK of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
+  attribute C_COMMON_CLK of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_COUNT_18K_BRAM : string;
   attribute C_COUNT_18K_BRAM of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "1";
   attribute C_COUNT_36K_BRAM : string;
@@ -408,21 +418,21 @@ entity blk_mem_gen_0_blk_mem_gen_v8_4_4 is
   attribute C_EN_SLEEP_PIN : integer;
   attribute C_EN_SLEEP_PIN of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "Estimated Power for IP     :     1.35165 mW";
+  attribute C_EST_POWER_SUMMARY of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "Estimated Power for IP     :     2.4448 mW";
   attribute C_FAMILY : string;
   attribute C_FAMILY of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "artix7";
   attribute C_HAS_AXI_ID : integer;
   attribute C_HAS_AXI_ID of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
+  attribute C_HAS_ENA of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_ENB : integer;
   attribute C_HAS_ENB of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
   attribute C_HAS_MUX_OUTPUT_REGS_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
@@ -452,7 +462,7 @@ entity blk_mem_gen_0_blk_mem_gen_v8_4_4 is
   attribute C_LOAD_INIT_FILE : integer;
   attribute C_LOAD_INIT_FILE of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
+  attribute C_MEM_TYPE of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 1;
   attribute C_MUX_PIPELINE_STAGES : integer;
   attribute C_MUX_PIPELINE_STAGES of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 0;
   attribute C_PRIM_TYPE : integer;
@@ -502,15 +512,17 @@ entity blk_mem_gen_0_blk_mem_gen_v8_4_4 is
   attribute C_WRITE_DEPTH_B : integer;
   attribute C_WRITE_DEPTH_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 625;
   attribute C_WRITE_MODE_A : string;
-  attribute C_WRITE_MODE_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "WRITE_FIRST";
+  attribute C_WRITE_MODE_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "NO_CHANGE";
   attribute C_WRITE_MODE_B : string;
-  attribute C_WRITE_MODE_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "WRITE_FIRST";
+  attribute C_WRITE_MODE_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "READ_FIRST";
   attribute C_WRITE_WIDTH_A : integer;
   attribute C_WRITE_WIDTH_A of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 8;
   attribute C_WRITE_WIDTH_B : integer;
   attribute C_WRITE_WIDTH_B of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is 8;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "artix7";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "blk_mem_gen_v8_4_4";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of blk_mem_gen_0_blk_mem_gen_v8_4_4 : entity is "yes";
 end blk_mem_gen_0_blk_mem_gen_v8_4_4;
@@ -519,14 +531,14 @@ architecture STRUCTURE of blk_mem_gen_0_blk_mem_gen_v8_4_4 is
   signal \<const0>\ : STD_LOGIC;
 begin
   dbiterr <= \<const0>\;
-  doutb(7) <= \<const0>\;
-  doutb(6) <= \<const0>\;
-  doutb(5) <= \<const0>\;
-  doutb(4) <= \<const0>\;
-  doutb(3) <= \<const0>\;
-  doutb(2) <= \<const0>\;
-  doutb(1) <= \<const0>\;
-  doutb(0) <= \<const0>\;
+  douta(7) <= \<const0>\;
+  douta(6) <= \<const0>\;
+  douta(5) <= \<const0>\;
+  douta(4) <= \<const0>\;
+  douta(3) <= \<const0>\;
+  douta(2) <= \<const0>\;
+  douta(1) <= \<const0>\;
+  douta(0) <= \<const0>\;
   rdaddrecc(9) <= \<const0>\;
   rdaddrecc(8) <= \<const0>\;
   rdaddrecc(7) <= \<const0>\;
@@ -585,10 +597,10 @@ GND: unisim.vcomponents.GND
 inst_blk_mem_gen: entity work.blk_mem_gen_0_blk_mem_gen_v8_4_4_synth
      port map (
       addra(9 downto 0) => addra(9 downto 0),
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
-      douta(7 downto 0) => douta(7 downto 0),
-      ena => ena,
+      doutb(7 downto 0) => doutb(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -599,11 +611,12 @@ use UNISIM.VCOMPONENTS.ALL;
 entity blk_mem_gen_0 is
   port (
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     wea : in STD_LOGIC_VECTOR ( 0 to 0 );
     addra : in STD_LOGIC_VECTOR ( 9 downto 0 );
     dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    clkb : in STD_LOGIC;
+    addrb : in STD_LOGIC_VECTOR ( 9 downto 0 );
+    doutb : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of blk_mem_gen_0 : entity is true;
@@ -628,7 +641,7 @@ architecture STRUCTURE of blk_mem_gen_0 is
   signal NLW_U0_s_axi_sbiterr_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_s_axi_wready_UNCONNECTED : STD_LOGIC;
   signal NLW_U0_sbiterr_UNCONNECTED : STD_LOGIC;
-  signal NLW_U0_doutb_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
+  signal NLW_U0_douta_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal NLW_U0_rdaddrecc_UNCONNECTED : STD_LOGIC_VECTOR ( 9 downto 0 );
   signal NLW_U0_s_axi_bid_UNCONNECTED : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal NLW_U0_s_axi_bresp_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -651,7 +664,7 @@ architecture STRUCTURE of blk_mem_gen_0 is
   attribute C_BYTE_SIZE : integer;
   attribute C_BYTE_SIZE of U0 : label is 9;
   attribute C_COMMON_CLK : integer;
-  attribute C_COMMON_CLK of U0 : label is 0;
+  attribute C_COMMON_CLK of U0 : label is 1;
   attribute C_COUNT_18K_BRAM : string;
   attribute C_COUNT_18K_BRAM of U0 : label is "1";
   attribute C_COUNT_36K_BRAM : string;
@@ -683,21 +696,21 @@ architecture STRUCTURE of blk_mem_gen_0 is
   attribute C_EN_SLEEP_PIN : integer;
   attribute C_EN_SLEEP_PIN of U0 : label is 0;
   attribute C_EST_POWER_SUMMARY : string;
-  attribute C_EST_POWER_SUMMARY of U0 : label is "Estimated Power for IP     :     1.35165 mW";
+  attribute C_EST_POWER_SUMMARY of U0 : label is "Estimated Power for IP     :     2.4448 mW";
   attribute C_FAMILY : string;
   attribute C_FAMILY of U0 : label is "artix7";
   attribute C_HAS_AXI_ID : integer;
   attribute C_HAS_AXI_ID of U0 : label is 0;
   attribute C_HAS_ENA : integer;
-  attribute C_HAS_ENA of U0 : label is 1;
+  attribute C_HAS_ENA of U0 : label is 0;
   attribute C_HAS_ENB : integer;
   attribute C_HAS_ENB of U0 : label is 0;
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 0;
+  attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 1;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
   attribute C_HAS_MUX_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
@@ -727,7 +740,7 @@ architecture STRUCTURE of blk_mem_gen_0 is
   attribute C_LOAD_INIT_FILE : integer;
   attribute C_LOAD_INIT_FILE of U0 : label is 1;
   attribute C_MEM_TYPE : integer;
-  attribute C_MEM_TYPE of U0 : label is 0;
+  attribute C_MEM_TYPE of U0 : label is 1;
   attribute C_MUX_PIPELINE_STAGES : integer;
   attribute C_MUX_PIPELINE_STAGES of U0 : label is 0;
   attribute C_PRIM_TYPE : integer;
@@ -777,9 +790,9 @@ architecture STRUCTURE of blk_mem_gen_0 is
   attribute C_WRITE_DEPTH_B : integer;
   attribute C_WRITE_DEPTH_B of U0 : label is 625;
   attribute C_WRITE_MODE_A : string;
-  attribute C_WRITE_MODE_A of U0 : label is "WRITE_FIRST";
+  attribute C_WRITE_MODE_A of U0 : label is "NO_CHANGE";
   attribute C_WRITE_MODE_B : string;
-  attribute C_WRITE_MODE_B of U0 : label is "WRITE_FIRST";
+  attribute C_WRITE_MODE_B of U0 : label is "READ_FIRST";
   attribute C_WRITE_WIDTH_A : integer;
   attribute C_WRITE_WIDTH_A of U0 : label is 8;
   attribute C_WRITE_WIDTH_B : integer;
@@ -791,26 +804,28 @@ architecture STRUCTURE of blk_mem_gen_0 is
   attribute x_interface_info of clka : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK";
   attribute x_interface_parameter : string;
   attribute x_interface_parameter of clka : signal is "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1";
-  attribute x_interface_info of ena : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA EN";
+  attribute x_interface_info of clkb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK";
+  attribute x_interface_parameter of clkb : signal is "XIL_INTERFACENAME BRAM_PORTB, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_LATENCY 1";
   attribute x_interface_info of addra : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR";
+  attribute x_interface_info of addrb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB ADDR";
   attribute x_interface_info of dina : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN";
-  attribute x_interface_info of douta : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT";
+  attribute x_interface_info of doutb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB DOUT";
   attribute x_interface_info of wea : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA WE";
 begin
 U0: entity work.blk_mem_gen_0_blk_mem_gen_v8_4_4
      port map (
       addra(9 downto 0) => addra(9 downto 0),
-      addrb(9 downto 0) => B"0000000000",
+      addrb(9 downto 0) => addrb(9 downto 0),
       clka => clka,
-      clkb => '0',
+      clkb => clkb,
       dbiterr => NLW_U0_dbiterr_UNCONNECTED,
       deepsleep => '0',
       dina(7 downto 0) => dina(7 downto 0),
       dinb(7 downto 0) => B"00000000",
-      douta(7 downto 0) => douta(7 downto 0),
-      doutb(7 downto 0) => NLW_U0_doutb_UNCONNECTED(7 downto 0),
+      douta(7 downto 0) => NLW_U0_douta_UNCONNECTED(7 downto 0),
+      doutb(7 downto 0) => doutb(7 downto 0),
       eccpipece => '0',
-      ena => ena,
+      ena => '0',
       enb => '0',
       injectdbiterr => '0',
       injectsbiterr => '0',
