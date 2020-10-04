@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 07/28/2020 05:48:45 PM
+-- Create Date: 09/16/2020 06:22:02 AM
 -- Design Name: 
 -- Module Name: padding_unit - Behavioral
 -- Project Name: 
@@ -21,11 +21,10 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -33,23 +32,19 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity padding_unit is generic (
-     input_address_size_g : integer := 10;          --width/height of input image 
-     pixel_size_g: integer := 8;                    --number of bits in a pixel
-     input_image_size_g : integer := 25);                                                         
+     pixel_size_g: integer := 8;                                                            
+     image_width_g : integer := 25;                                                          
+     address_width_g : integer := 10);  
  
   Port (   clk : in STD_LOGIC;
-           reset : in STD_LOGIC;
-           start_padding_in : in STD_LOGIC;                      --enable padding_unit
-           finished_padding_out : out STD_LOGIC;                    --enable the out
-           input_ram_enable_out : out STD_LOGIC;
-           output_ram_enable_out : out STD_LOGIC;
-           input_ram_in : in STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                    
-           output_ram_out : out STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                 
-           input_ram_write_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                     --enable writing values to input ram
-           output_ram_write_enable_out : out STD_LOGIC_VECTOR(0 DOWNTO 0);                    --enable writing values to output ram
-           input_ram_address_out : out STD_LOGIC_VECTOR (input_address_size_g-1 downto 0);   --address for reading values from input ram
-           output_ram_address_out : out STD_LOGIC_VECTOR (input_address_size_g-1 downto 0));     --address for writing values to output ram
-           
+           rst_n : in STD_LOGIC;
+           input_img_pixel_in : in STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                   
+           output_img_pixel_out : out STD_LOGIC_VECTOR (pixel_size_g-1 downto 0);                
+           start_op_in : in STD_LOGIC;                                                         
+           done_op_out : out STD_LOGIC;                                                       
+           input_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);        
+           output_img_address_out : out STD_LOGIC_VECTOR (address_width_g-1 downto 0);                        
+           output_img_write_en_out : out STD_LOGIC_VECTOR(0 DOWNTO 0));                        
            
 end padding_unit;
 
@@ -57,89 +52,71 @@ architecture Behavioral of padding_unit is
 
 begin
 
-padding_process : process (clk, reset, start_padding_in)
+pad_image : process (clk, input_img_pixel_in, rst_n, start_op_in)
 
-    --define constants and variables used for padding process
-    constant original_image_size : integer := input_image_size_g * input_image_size_g;                     --size of input image in pixels
-    constant padded_image_size : integer := (input_image_size_g +2) * (input_image_size_g +2);                                  --width of output image in pixels
-    variable current_pixel_count : integer := 0;                                       --used for stepping through each pixel in output image (0 -> output_img_size)
-    variable original_raw : integer := 0;                                                --horizontal index of output image pixel
-    variable original_column : integer := 0;                                                --vertical index of output image pixel
-    variable padded_row : integer := 0;                                                --horizontal index of output image pixel
-    variable padded_column : integer := 0;                                                --vertical index of output image pixel
-    variable read_delay : integer := 3;                                                 --ram read delay counter
-    variable write_delay : integer := 3;                                                --ram write delay counter
+    constant padded_img_width : integer := image_width_g +2;                                
+    constant padded_img_size : integer := padded_img_width * padded_img_width;                  
+    variable output_pixel_counter : integer := 0;                                       
+    variable pad_img_col : integer := 0;                                                
+    variable pad_img_row : integer := 0;                                                
+    variable org_img_col : integer := 0;                                                
+    variable org_img_row : integer := 0;                                                
+    variable read_delay : integer := 3;                                                 
+    variable write_delay : integer := 3;                                                
     
     begin
-    
-    --rst_n to initial state
-        if (reset = '0') then
-            current_pixel_count := 0;
-            padded_row := 0;
-            padded_column := 0;
+
+        if (rst_n = '0') then
+            output_pixel_counter := 0;
             read_delay := 0;
             write_delay := 0;
-            finished_padding_out <= '0';
-            input_ram_enable_out <= '0';
-            output_ram_enable_out <= '0';
-            input_ram_address_out <= "0000000000";
-            output_ram_address_out <= "0000000000";
+            done_op_out <= '0';
+            output_img_write_en_out <= "0";
+            input_img_address_out <= "0000000000";
+            output_img_address_out <= "0000000000";
                     
         elsif rising_edge(clk) then
-            if start_padding_in = '1' then
-                 if (current_pixel_count = padded_image_size) then
-                    finished_padding_out <= '1';
+            if start_op_in = '1' then
+            
+                 if (output_pixel_counter = padded_img_size) then
+                    done_op_out <= '1';
                  end if; 
                              
-                 output_ram_enable_out <= '0';              
+                 output_img_write_en_out <= "0";            
                  
-                 if (padded_row=0 or padded_row=input_image_size_g+1 or padded_column=0 or padded_column=input_image_size_g+1) then
-                    if (read_delay=0) then 
-                        write_delay :=4;
-                        output_ram_enable_out <= '0';
-                        output_ram_write_enable_out <= "0";
-                        output_ram_address_out <= std_logic_vector(to_unsigned(current_pixel_count, input_address_size_g));
-                        output_ram_out <= "00000000";
-                        output_ram_enable_out <= '1';
-                        output_ram_write_enable_out <= "1";
-                    end if;
-                    current_pixel_count:= current_pixel_count+1;
-                    if (padded_column = input_image_size_g+1) then
-                        padded_column := 0;
-                        padded_row := padded_row+1;
-                    else
-                        padded_column := padded_column+1;
-                    end if;  
+                 pad_img_col := output_pixel_counter mod padded_img_width;
+                 pad_img_row := output_pixel_counter / padded_img_width;
+                 
+                 if (pad_img_col = 0) then 
+                    org_img_col := 0;
+                 elsif (pad_img_col > 0 and pad_img_col < (padded_img_width - 1)) then
+                    org_img_col := pad_img_col - 1;
                  end if;
+            
+                 if (pad_img_row = 0) then
+                    org_img_row := 0;        
+                 elsif (pad_img_row > 0 and pad_img_row < (padded_img_width - 1)) then
+                    org_img_row := pad_img_row - 1;
+                 end if;      
                  
-                 else
-                     if (write_delay = 0) then 
-                         read_delay := 4;
-                         input_ram_enable_out <= '0';
-                         input_ram_write_enable_out <= "0";         
-                         input_ram_address_out <= std_logic_vector(to_unsigned((input_image_size_g*padded_row) + padded_column, input_address_size_g));
-                         input_ram_enable_out <= '1';
-                         input_ram_write_enable_out <= "0";
-                        
-                     end if;
-
-                     if (read_delay = 0) then
-                         write_delay := 4;
-                         output_ram_enable_out <= '0';
-                         output_ram_write_enable_out <= "0";   
-                         output_ram_address_out <= std_logic_vector(to_unsigned(current_pixel_count, input_address_size_g));               
-                         output_ram_out <= input_ram_in;
-                         output_ram_enable_out <= '1';
-                         output_ram_write_enable_out <= "1"; 
-                         current_pixel_count := current_pixel_count + 1;
-                         padded_column := padded_column+1;
-                     end if;
-                        
+                 if (write_delay = 0) then 
+                     read_delay := 4;       
+                     input_img_address_out <= std_logic_vector(to_unsigned((image_width_g*org_img_row) + org_img_col, address_width_g));
+                 end if;
+                     
+                 if (read_delay = 0) then
+                     write_delay := 4;   
+                     output_img_address_out <= std_logic_vector(to_unsigned(output_pixel_counter, address_width_g));                 
+                     output_img_pixel_out <= input_img_pixel_in;
+                     output_img_write_en_out <= "1";
+                     output_pixel_counter := output_pixel_counter + 1;
+                 end if;
                      
                  read_delay := read_delay - 1;
                  write_delay := write_delay - 1;
                  
              end if;
         end if;
-    end process padding_process;
+    end process pad_image;
 end Behavioral;
+
